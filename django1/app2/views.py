@@ -1,22 +1,22 @@
 from django.shortcuts import render
-from app2.forms import inputform
-from .models import students
-def home(request):
-    if request.method=="POST":
-        form1=inputform(request.POST)
-        if form1.is_valid():
-            form1.save()
-            return render(request,'app2/index.html',{'form':form1,'param1':"Success"})
-    else:
-        form1=inputform() #if it is a GET Request present an empty form
-    return render(request,'app2/index.html',{'form':form1})
+from .forms import inputform1
 
-def show(request):
-    ls=students.objects.all().values()
-    con={
-        'students':ls
-    }
-    return render(request,'app2/details.html',con)
-    
-    
+def sqfct(request):                 #view to display square and factorial of a number entered
+    if request.method=="POST":
+        form1=inputform1(request.POST)
+        if form1.is_valid():
+            data=form1.cleaned_data
+            n1=data.get('n1')
+            result=factorial(n1)
+            return render(request,'app2/input.html',{'n':n1,'sqr':n1**2,'fct':result,'form':form1})
+    else:
+        form1=inputform1()
+        
+    return render(request ,'app2/input.html',{'form':form1})
+
+def factorial(n):              #a python function
+    pr=1
+    for i in range(2,n+1):
+        pr=pr*i
+    return pr
 # Create your views here.

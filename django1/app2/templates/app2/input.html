@@ -1,0 +1,57 @@
+<html>
+<head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            background-color: #f0f0f0; /* Light grey background */
+            color: #333; /* Dark grey text */
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff; /* White background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+        h2, p {
+            text-align: center;
+        }
+        h2 {
+            margin-top: 50px;
+            color: #007BFF; /* Blue color for headings */
+        }
+        button {
+            background-color: #007BFF; /* Blue background for button */
+            color: #fff; /* White text */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit">Submit</button>
+    </form>
+    {% if n %}
+    <h2>Printing Square of Number</h2>
+    <p>Square of {{n}} is {{sqr}}</p>
+
+    <h2>Printing Factorial of Number</h2>
+    <p>Factorial of {{n}} is {{fct}}</p>
+    {% endif %}
+</body>
+</html>

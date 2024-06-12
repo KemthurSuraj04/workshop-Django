@@ -1,6 +1,3 @@
 from django import forms
-from app2.models import students
-class inputform(forms.ModelForm):
-    class Meta:
-        model=students
-        fields=['name1','college1','course1']
+class inputform1(forms.Form):
+    n1=forms.IntegerField(min_value=1,max_value=10,label="Enter a number")

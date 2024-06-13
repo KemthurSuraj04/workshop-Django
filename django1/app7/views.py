@@ -21,4 +21,4 @@ def convert(request):
         number = int(request.POST.get("number"))
         words = numberToWords(number)
         return render(request, 'app7/index.html', {'number': number, 'words': words, 'cheque': True})
-    return render(request, 'converter/index.html')
+    return render(request, 'app7/index.html')

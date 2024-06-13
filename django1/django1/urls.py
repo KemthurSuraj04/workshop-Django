@@ -23,5 +23,8 @@ urlpatterns = [
     path('app2/',include("app2.appurls")),
     path('app3/',include('app3.appurls')),
     path('app4/',include("app4.appurls")),
-    path('app5/',include("app5.appurls"))
+    path('app5/',include("app5.appurls")),
+    path('app6/',include("app6.appurls")),
+    path('app7/',include("app7.appurls")),
+    path('app8/',include("app8.appurls"))
 ]
